@@ -1,0 +1,11 @@
+[project]
+name = "jupyter-sheets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyter-iframe-commands>=0.3.0",
+    "jupyterlite-core>=0.7.1",
+    "jupyterlite-pyodide-kernel>=0.7.0",
+]
