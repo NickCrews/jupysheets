@@ -1,25 +1,25 @@
 <html>
   <head>
     <title>JupyterLite in an iframe</title>
-    <script type="module" src="./src/main.ts"></script>
   </head>
   <body>
     <h2>JupyterLite with command bridge</h2>
     <div>
-      <button id="toggle-left-sidebar">Toggle Left Sidebar</button>
       <button id="set-dark-theme">Set Dark Theme</button>
+      <button id="set-light-theme">Set Light Theme</button>
       <button id="list-commands">List Commands (check console)</button>
     </div>
     <iframe
-      id="jupyterlite-iframe"
-      src="%VITE_DEMO_SRC%"
-      sandbox="allow-scripts allow-same-origin allow-downloads allow-popups allow-downloads-without-user-activation"
-      allow="microphone"
-      allowfullscreen
-      width="100%"
-      height="600px"
-      style="border: 1px solid #ddd; border-radius: 8px;"
+    id="jupyterlite-iframe"
+    src="%VITE_DEMO_SRC%"
+    sandbox="allow-scripts allow-same-origin allow-downloads allow-popups"
+    allow="microphone"
+    allowfullscreen
+    width="100%"
+    height="600px"
+    style="border: 1px solid #ddd; border-radius: 8px;"
     >
-    </iframe>
+  </iframe>
+  <script type="module" src="./main.ts"></script>
   </body>
 </html>

@@ -5,15 +5,19 @@ clean-jl:
     rm -rf jl/lite
 
 build-jl: clean-jl
-    cd jl && uv run jupyter lite build --contents ../README.md --contents ./starter.ipynb --lite-dir ./config --output-dir ./build/lite
+    cd jl && uv run jupyter lite build --contents ../README.md --contents ./starter.ipynb --lite-dir ./config --output-dir ./build/lite --apps notebooks --no-unused-shared-packages
 
 dev-jl:
-    cd jl && uv run jupyter lite serve
+    cd jl && uv run jupyter lite serve --help
 
-dev-gas: build-jl
-    cd gas && rm -rf ./public/ && mkdir -p ./public && cp -r ../jl/build/lite ./public/lite && VITE_DEMO_SRC='./lite/index.html' pnpm exec vite dev
+# copy the built jl lite to gas public dir so it can be served by vite
+mv-jl-to-gas: build-jl
+    rm -rf gas/public/lite && mkdir -p gas/public && cp -r jl/build/lite gas/public/lite
 
-build-gas jlsrc="https://jupyterlite.readthedocs.io/en/latest/_static/notebooks/index.html?path=intro.ipynb":
+dev-gas mode="dev": mv-jl-to-gas
+    cd gas && VITE_DEMO_SRC='./lite/notebooks/index.html?path=starter.ipynb' pnpm exec vite {{mode}}
+
+build-gas jlsrc="https://jupyterlite.readthedocs.io/en/latest/_static/notebooks/index.html?path=starter.ipynb":
     cd gas && VITE_DEMO_SRC={{jlsrc}} pnpm exec vite build
 
 dev:
