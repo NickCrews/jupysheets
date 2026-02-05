@@ -1,4 +1,6 @@
-*doit.db
 _output
+dist
+
+*doit.db
 .venv
 .python-version
