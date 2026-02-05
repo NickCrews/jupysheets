@@ -23,5 +23,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "dist/server.ts"],
+  "include": ["gas/src", "dist/server.ts"],
 }

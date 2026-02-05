@@ -1,6 +1,0 @@
-_output
-dist
-
-*doit.db
-.venv
-.python-version

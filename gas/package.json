@@ -1,0 +1,24 @@
+{
+	"name": "jupysheets",
+	"type": "module",
+	"scripts": {
+		"dev": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite",
+		"build": "tsc && VITE_DEMO_SRC='http://localhost:8888' VITE_TITLE='Local' vite build --base=./",
+		"build:ghpages": "tsc && VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite build --base=./",
+		"build:lite": "jlpm clean:lite && jupyter lite build --contents ../README.md --contents ./example.ipynb --lite-dir ./config --output-dir ./public/lite",
+		"clean:lite": "rm -rf public/lite",
+		"preview": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite preview",
+		"start:lab": "jupyter lab --config jupyter_server_config.py",
+		"start:lite": "jlpm dev",
+		"start:local": "VITE_DEMO_SRC='http://localhost:8888' VITE_TITLE='Local' vite --port 8080"
+	},
+	"dependencies": {
+		"jupyter-iframe-commands-host": "^0.3.0"
+	},
+	"devDependencies": {
+		"@google/clasp": "^3.2.0",
+		"gas-types-detailed": "^1.1.3",
+		"vite": "^7.3.1",
+		"vite-plugin-singlefile": "^2.3.0"
+	}
+}
