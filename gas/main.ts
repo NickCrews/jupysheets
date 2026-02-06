@@ -1,4 +1,4 @@
-import { createBridge } from 'jupyter-iframe-commands-host';
+import { createBridge, createProxy } from 'jupyter-iframe-commands-host';
 
 const commandBridge = createBridge({ iframeId: 'jupyterlite-iframe' });
 
@@ -13,6 +13,13 @@ async function listCommands() {
     const commands = await commandBridge.listCommands();
     console.log(commands);
 }
+
+async function handleMessage(args: any) {
+    console.log('Received message from iframe:', args);
+    document.getElementById('command-output')!.textContent = JSON.stringify(args, null, 2);
+};
+
+await commandBridge.execute('pyframe:register-host-handler', createProxy(handleMessage));
 
 document.getElementById("set-dark-theme")?.addEventListener("click", () => setTheme('JupyterLab Dark'));
 document.getElementById("set-light-theme")?.addEventListener("click", () => setTheme('JupyterLab Light'));

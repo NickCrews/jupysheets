@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "ipylab>=1.1.0",
     "jupyter-iframe-commands>=0.3.0",
+    "jupyterlab-examples-commands",
     "jupyterlite-core>=0.7.1",
     "jupyterlite-pyodide-kernel>=0.7.0",
     "notebook>=7.5.3",
@@ -15,3 +17,11 @@ dependencies = [
 dev = [
     "jupyter-server>=2.17.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "extension",
+]
+
+[tool.uv.sources]
+jupyterlab-examples-commands = { workspace = true }

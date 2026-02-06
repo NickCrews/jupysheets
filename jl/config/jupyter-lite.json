@@ -6,6 +6,19 @@
       // "@jupyterlite/application-extension:logo",
       // "@jupyterlab/help-extension:resources",
       // "@jupyter-notebook/lab-extension"
-    ]
-  }
+    ],
+    // By default, jupyterlite saves the state of the notebook to the client's
+    // browser, and on reload of the page, the notebook will be restored to that state.
+    // The problem is that this local state overrides the contents sent from the server.
+    // So, if you edit a notebook rebuild your docs, and refresh the page,
+    // you still see the old version.
+    // These settings make it so that the state is never stored on the client,
+    // and is refreshed from the server on every page load.
+    // Not ideal: it would be great if the user's state persisted until the
+    // data on the server actually *changed*, but that doesn't appear possible yet.
+    // See https://github.com/jupyterlite/jupyterlite/issues/1706#issuecomment-3187140714
+    "enableMemoryStorage": true,
+    "settingsStorageDrivers": ["memoryStorageDriver"],
+    "contentsStorageDrivers": ["memoryStorageDriver"],
+  },
 }

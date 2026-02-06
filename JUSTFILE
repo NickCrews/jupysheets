@@ -5,10 +5,10 @@ clean-jl:
     rm -rf jl/lite
 
 build-jl: clean-jl
-    cd jl && uv run jupyter lite build --contents ../README.md --contents ./starter.ipynb --lite-dir ./config --output-dir ./build/lite --apps notebooks --no-unused-shared-packages
+    cd jl && uv run --all-groups jupyter lite build --contents ../README.md --contents ./starter.ipynb --lite-dir ./config --output-dir ./build/lite --apps notebooks --no-unused-shared-packages
 
 dev-jl:
-    cd jl && uv run jupyter lite serve --help
+    cd jl && uv run --all-groups jupyter lite serve --help
 
 # copy the built jl lite to gas public dir so it can be served by vite
 mv-jl-to-gas: build-jl
