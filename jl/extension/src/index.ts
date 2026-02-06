@@ -4,8 +4,8 @@ import {
 } from '@jupyterlab/application';
 
 const extension: JupyterFrontEndPlugin<void> = {
-  id: 'commands',
-  description: 'Minimal JupyterLab example creating a new command.',
+  id: 'jupysheets',
+  description: 'Communication bridge for jupysheets',
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
     const { commands } = app;

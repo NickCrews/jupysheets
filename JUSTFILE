@@ -1,11 +1,22 @@
 init:
     pnpm install
 
+# Build the jupyterlab extension, which is a dependency of the jl lite build
+build-ext:
+    pip install -e jl/extension
+    cd jl/extension && uv build
+    # mkdir -p jl/config/pypi
+    # cp jl/dist/*.whl jl/config/pypi/jupysheets.whl
+
 clean-jl:
     rm -rf jl/lite
 
 build-jl: clean-jl
-    cd jl && uv run --all-groups jupyter lite build --contents ../README.md --contents ./starter.ipynb --lite-dir ./config --output-dir ./build/lite --apps notebooks --no-unused-shared-packages
+    #!/bin/bash
+    WHEEL_ABS_PATH=$(realpath jl/dist/*.whl)
+    # echo "Using wheel at"
+    echo "Using wheel at: ${WHEEL_ABS_PATH}"
+    cd jl && uv run --all-groups jupyter lite build --contents ../README.md --contents ./starter.ipynb --lite-dir ./config --output-dir ./build/lite --apps notebooks --no-unused-shared-package --piplite-wheels ${WHEEL_ABS_PATH}
 
 dev-jl:
     cd jl && uv run --all-groups jupyter lite serve --help

@@ -12,3 +12,8 @@ except ImportError:
 
 def _jupyter_labextension_paths():
     return [{"src": "labextension", "dest": "jupysheets"}]
+
+
+def read_range(range_str: str):
+    """Read a range of cells from the spreadsheet and return it as a list of lists."""
+    return [[1, 2, 3], [4, 5, 6]]
