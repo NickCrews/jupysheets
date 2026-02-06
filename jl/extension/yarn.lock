@@ -885,9 +885,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab-examples/commands@workspace:.":
+"jupysheets@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@jupyterlab-examples/commands@workspace:."
+  resolution: "jupysheets@workspace:."
   dependencies:
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/builder": ^4.0.0

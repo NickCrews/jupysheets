@@ -37,8 +37,8 @@ artifacts = ["jupysheets/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupysheets/labextension" = "share/jupyter/labextensions/@jupyterlab-examples/commands"
-"install.json" = "share/jupyter/labextensions/@jupyterlab-examples/commands/install.json"
+"jupysheets/labextension" = "share/jupyter/labextensions/jupysheets"
+"install.json" = "share/jupyter/labextensions/jupysheets/install.json"
 
 [tool.hatch.build.hooks.version]
 path = "jupysheets/_version.py"

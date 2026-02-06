@@ -1,5 +1,5 @@
 {
-    "name": "@jupyterlab-examples/commands",
+    "name": "jupysheets",
     "version": "0.1.0",
     "description": "Minimal JupyterLab example creating a new command.",
     "keywords": [
