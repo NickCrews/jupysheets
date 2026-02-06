@@ -4,6 +4,8 @@ The vision is jupyterlite running in google sheets sidebar,
 allowing for reading, modifying, and writing sheet data with your favorite
 python tools such as polars.
 
+<img width="975" height="471" alt="image" src="https://github.com/user-attachments/assets/e27b1328-4cad-45c2-a9bb-4a7874183398" />
+
 This isn't working yet, but I have prototypes for several of the necessary parts of
 communication.
 
